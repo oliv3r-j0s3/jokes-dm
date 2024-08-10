@@ -37,7 +37,7 @@ export class JokesDm extends LitElement {
     super();
     this.host = '';
     this.path = '';
-    this.amount = 5;
+    this.amount = 0;
   }
 
   static get styles() {
@@ -45,19 +45,29 @@ export class JokesDm extends LitElement {
   }
 
   _normalizeResponse(response) {
-    return response.jokes.map((joke) => {
-      return {
-        id: joke.id,
-        category: joke.category,
-        type: joke.type,
-        setup: (joke.type === "single")? joke.joke : joke.setup + ' ' + joke.delivery,
-      };
-    });
+    if (response.amount){
+      return response.jokes.map((joke) => {
+        return {
+          id: joke.id,
+          category: joke.category,
+          type: joke.type,
+          setup: (joke.type === "single")? joke.joke : joke.setup + ' ' + joke.delivery,
+        };
+      });
+    }
+    return [{
+      id: response.id,
+      category: response.category,
+      type: response.type,
+      setup: (response.type === "single")? response.joke : response.setup + ' ' + response.delivery,
+    }];
   }
 
   firstUpdated() {
     // 1. Obtener el DP (Data Provider)
     const jokesDP = this.shadowRoot.querySelector('#jokes-dp');
+    console.log("############## DM firstUpdated ##############");
+    console.log(jokesDP);
     // 2. Lanzar un evento, para avisar que el request ha iniciado
 
     /**
@@ -80,8 +90,11 @@ export class JokesDm extends LitElement {
     jokesDP
       .generateRequest()
       .then(({ response }) => {
+        console.log("response ",response);
         // 4-B. Invocar la función de normalización
         const normalizedResponse = this._normalizeResponse(response);
+        console.log(" normalizedResponse ",normalizedResponse);
+        console.log("######################################");
         // 5-A. Reaccionar a la respuesta exitosa
 
         /**
