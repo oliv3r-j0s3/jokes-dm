@@ -68,7 +68,7 @@ export class JokesDm extends LitElement {
       new CustomEvent('jokes-dm-request-start', {
         bubbles: true,
         composed: true,
-        jokes: true,
+        detail: true,
       }),
     );
     // 3. Ejecutar el DM
@@ -93,7 +93,7 @@ export class JokesDm extends LitElement {
           new CustomEvent('jokes-dm-request-success', {
             bubbles: true,
             composed: true,
-            jokes: normalizedResponse,
+            detail: normalizedResponse,
           }),
         );
       })
@@ -111,7 +111,7 @@ export class JokesDm extends LitElement {
           new CustomEvent('jokes-dm-request-error', {
             bubbles: true,
             composed: true,
-            jokes: err,
+            detail: err,
           }),
         );
       });

@@ -1,0 +1,87 @@
+{
+    "schema_version": "1.0.0",
+    "classes": [
+        {
+            "description": "![LitElement component](https://img.shields.io/badge/litElement-component-blue.svg)\n\nThis component ...\n\nExample:\n\n```html\n  <jokes-dm></jokes-dm>\n```",
+            "summary": "",
+            "path": "src/JokesDm.js",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "_normalizeResponse",
+                    "description": "",
+                    "privacy": "protected",
+                    "sourceRange": {
+                        "start": {
+                            "line": 42,
+                            "column": 2
+                        },
+                        "end": {
+                            "line": 51,
+                            "column": 3
+                        }
+                    },
+                    "metadata": {},
+                    "params": [
+                        {
+                            "name": "response"
+                        }
+                    ]
+                },
+                {
+                    "name": "firstUpdated",
+                    "description": "",
+                    "privacy": "public",
+                    "sourceRange": {
+                        "start": {
+                            "line": 53,
+                            "column": 2
+                        },
+                        "end": {
+                            "line": 117,
+                            "column": 3
+                        }
+                    },
+                    "metadata": {},
+                    "params": [],
+                    "return": {
+                        "type": "void"
+                    }
+                },
+                {
+                    "name": "render",
+                    "description": "",
+                    "privacy": "public",
+                    "sourceRange": {
+                        "start": {
+                            "line": 119,
+                            "column": 2
+                        },
+                        "end": {
+                            "line": 129,
+                            "column": 3
+                        }
+                    },
+                    "metadata": {},
+                    "params": []
+                }
+            ],
+            "staticMethods": [],
+            "demos": [],
+            "metadata": {},
+            "sourceRange": {
+                "start": {
+                    "line": 16,
+                    "column": 7
+                },
+                "end": {
+                    "line": 130,
+                    "column": 1
+                }
+            },
+            "privacy": "public",
+            "superclass": "LitElement",
+            "name": "JokesDm"
+        }
+    ]
+}
