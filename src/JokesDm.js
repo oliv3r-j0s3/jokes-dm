@@ -20,20 +20,24 @@ export class JokesDm extends LitElement {
       /**
        * Description for property
        */
+      //api main endpoint chain
       host: {
         type: String,
       },
+      //path endpoint string property
       path: {
         type: String,
       },
+      //number of jokes to get
+      amount: {type: Number},
     };
   }
 
   constructor() {
     super();
-
     this.host = '';
     this.path = '';
+    this.amount = 5;
   }
 
   static get styles() {
@@ -78,7 +82,6 @@ export class JokesDm extends LitElement {
       .then(({ response }) => {
         // 4-B. Invocar la función de normalización
         const normalizedResponse = this._normalizeResponse(response);
-        console.log(normalizedResponse);
         // 5-A. Reaccionar a la respuesta exitosa
 
         /**
@@ -86,7 +89,7 @@ export class JokesDm extends LitElement {
          *
          * @event jokes-dm-request-success
          * @type {object}
-         * @property {Array<{category:String, id:Number, Setup: String, type: String}>} recipes
+         * @property {Array<{category:String, id:Number, Setup: String, type: String}>} jokes
          */
 
         this.dispatchEvent(
@@ -122,7 +125,7 @@ export class JokesDm extends LitElement {
       <bbva-core-generic-dp
         id="jokes-dp"
         host="https://v2.jokeapi.dev"
-        path="/joke/Programming,Miscellaneous?amount=4"
+        path="/joke/Programming,Miscellaneous?amount=${this.amount}"
         method="GET"
       >
       </bbva-core-generic-dp>
