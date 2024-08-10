@@ -67,6 +67,7 @@ export class JokesDm extends LitElement {
     // 1. Obtener el DP (Data Provider)
     const jokesDP = this.shadowRoot.querySelector('#jokes-dp');
     console.log("############## DM firstUpdated ##############");
+    console.log("amount---> ",this.amount);
     console.log(jokesDP);
     // 2. Lanzar un evento, para avisar que el request ha iniciado
 
